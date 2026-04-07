@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 | Velocity</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Keep it self-contained, no dependency on the 3D scroll JS */
+    body { overflow: hidden; }
+    .nf-wrap{
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 7rem 1.5rem 3rem;
+      position: relative;
+      isolation: isolate;
+    }
+    .nf-card{
+      width: min(980px, 92vw);
+      border-radius: 28px;
+      background: rgba(26, 26, 26, 0.55);
+      border: 1px solid rgba(255,255,255,0.10);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 35px 100px rgba(0,0,0,0.65);
+      padding: clamp(1.25rem, 3.5vw, 3rem);
+      position: relative;
+      overflow: hidden;
+    }
+    .nf-card::before{
+      content:'';
+      position:absolute;
+      inset:-2px;
+      background: radial-gradient(700px 300px at 20% 10%, rgba(255,61,0,0.30), transparent 55%),
+                  radial-gradient(700px 300px at 85% 70%, rgba(255,255,255,0.10), transparent 60%);
+      pointer-events:none;
+      z-index:0;
+    }
+    .nf-inner{ position: relative; z-index: 1; }
+    .nf-kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:.6rem;
+      padding:.6rem .9rem;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.14);
+      color: rgba(255,255,255,0.85);
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:2px;
+      font-size:.78rem;
+      margin-bottom: 1.25rem;
+    }
+    .nf-kicker b{ color: var(--velocity-accent); }
+    .nf-title{
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      letter-spacing: -2px;
+      line-height: 0.95;
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      margin: 0 0 1rem;
+    }
+    .nf-title .accent{
+      color: var(--velocity-accent);
+      display:inline-block;
+      transform: rotate(-2deg);
+    }
+    .nf-sub{
+      color: var(--velocity-light-gray);
+      font-size: clamp(1rem, 2.3vw, 1.25rem);
+      line-height: 1.6;
+      max-width: 60ch;
+      margin: 0 0 1.75rem;
+    }
+    .nf-quips{
+      display:grid;
+      gap:.65rem;
+      margin: 0 0 2.25rem;
+      padding: 0;
+      list-style: none;
+      color: rgba(255,255,255,0.88);
+      font-size: 0.98rem;
+    }
+    .nf-quips li{
+      padding: .75rem 1rem;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(10,10,10,0.35);
+    }
+    .nf-actions{
+      display:flex;
+      gap: .9rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .nf-ghost{
+      display:inline-flex;
+      align-items:center;
+      gap:.6rem;
+      padding: 1.15rem 1.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      color: rgba(255,255,255,0.92);
+      text-decoration:none;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      transition: transform .25s ease, border-color .25s ease;
+      background: rgba(10,10,10,0.25);
+    }
+    .nf-ghost:hover{ transform: translateY(-2px); border-color: rgba(255,255,255,0.32); }
+    .nf-meta{
+      margin-top: 1.25rem;
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.65);
+    }
+    .nf-meta code{
+      color: rgba(255,255,255,0.85);
+      background: rgba(0,0,0,0.25);
+      padding: .2rem .45rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+    .nf-doodle{
+      position:absolute;
+      inset: auto;
+      top: -40px;
+      right: -90px;
+      width: min(560px, 85vw);
+      opacity: .18;
+      pointer-events:none;
+      z-index: 0;
+      transform: rotate(10deg);
+      filter: drop-shadow(0 25px 70px rgba(0,0,0,0.55));
+    }
+    .nf-doodle path{
+      fill: none;
+      stroke: rgba(255,255,255,0.88);
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 12 10;
+    }
+    @media (prefers-reduced-motion: reduce){
+      .nf-ghost, .cta-button { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="scroll-progress" aria-hidden="true" style="transform:scaleX(1)"></div>
+
+  <main class="nf-wrap">
+    <svg class="nf-doodle" viewBox="0 0 800 420" aria-hidden="true" focusable="false">
+      <path d="M40,260 C130,110 250,380 350,220 C450,70 560,360 650,190 C740,45 790,160 780,130" />
+      <path d="M60,340 C160,280 240,395 350,320 C460,240 560,380 700,310" />
+      <path d="M120,80 C210,40 260,120 340,90 C420,60 500,140 600,100" />
+    </svg>
+
+    <section class="nf-card" aria-labelledby="nfTitle">
+      <div class="nf-inner">
+        <div class="nf-kicker"><b>Velocity</b> Navigation System</div>
+
+        <h1 class="nf-title" id="nfTitle">
+          404
+          <span class="accent">Not Found</span>
+        </h1>
+
+        <p class="nf-sub" id="nfSub">
+          You found a page that doesn’t exist. Either the link is broken, or we shipped a feature at 3am and the universe said “nah”.
+        </p>
+
+        <ul class="nf-quips" id="nfQuips" aria-live="polite">
+          <li><span id="nfQuip">Loading sarcasm…</span></li>
+          <li>Try going home. It’s safer there.</li>
+          <li>If you need this page, we can build it. We have… time.</li>
+        </ul>
+
+        <div class="nf-actions">
+          <a class="cta-button" href="./index.html">
+            <span>Back to Home</span>
+            <span style="font-size: 1.5rem;">→</span>
+          </a>
+          <a class="nf-ghost" href="mailto:hello@velocity.studio?subject=Broken%20link%20on%20Velocity">
+            <span>Report this void</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <div class="nf-meta">
+          Requested URL: <code id="nfPath">/</code>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      var pathEl = document.getElementById('nfPath');
+      if (pathEl) pathEl.textContent = window.location.pathname || '/';
+
+      var quips = [
+        "This route is so missing it owes us money.",
+        "Congrats, you discovered our secret feature: Nothing™.",
+        "404: page not found. Confidence still high.",
+        "The link went out for snacks and never came back.",
+        "We asked the server. It shrugged.",
+        "It’s not you. It’s… okay it might be you. (Kidding.)",
+        "The page is in another castle. Wrong castle. Wrong franchise. Anyway."
+      ];
+
+      var quipEl = document.getElementById('nfQuip');
+      if (quipEl) quipEl.textContent = quips[Math.floor(Math.random() * quips.length)];
+    })();
+  </script>
+</body>
+</html>
+
