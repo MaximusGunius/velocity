@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velocity | We Get Your Business Moving</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#hero">Skip to content</a>
+
+    <!-- Custom Cursor (Desktop Only) -->
+    <div class="cursor"></div>
+    <div class="cursor-dot"></div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress"></div>
+
+    <!-- Particle Canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Floating Scroll Tooltip -->
+    <div class="tooltip-backdrop" id="tooltipBackdrop" aria-hidden="true"></div>
+    <div class="scroll-tooltip" id="scrollTooltip" aria-hidden="true">
+        <span class="scroll-tooltip-text">Scroll Up to Explore</span>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-velocity">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <a class="velocity-logo" href="#hero" aria-label="Velocity home">
+                        <img src="./logo.webp" alt="Velocity" class="velocity-logo-img" width="320" height="64" style="height:48px;width:auto;" decoding="async">
+                      </a>
+                </div>
+                <div class="col-6 text-end">
+                    <ul class="nav-links justify-content-end d-none d-md-flex">
+                        <li><a href="#hero" class="nav-link-custom">Home</a></li>
+                        <li><a href="#work" class="nav-link-custom">Work</a></li>
+                        <li><a href="#services" class="nav-link-custom">Services</a></li>
+                        <li><a href="#about" class="nav-link-custom">About</a></li>
+                        <li><a href="#contact" class="nav-link-custom">Contact</a></li>
+                    </ul>
+                    <button class="menu-toggle d-md-none" id="menuToggle" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Site menu" hidden>
+        <div class="mobile-menu-panel" role="document">
+            <a href="#hero" class="mobile-link">Home</a>
+            <a href="#work" class="mobile-link">Work</a>
+            <a href="#services" class="mobile-link">Services</a>
+            <a href="#about" class="mobile-link">About</a>
+            <a href="#contact" class="mobile-link">Contact</a>
+        </div>
+    </div>
+    
+    <!-- Mobile Bottom Nav Pill -->
+    <nav class="mobile-pill-nav" aria-label="Quick navigation">
+        <a class="pill-link" href="#hero" data-section="hero">Home</a>
+        <a class="pill-link" href="#work" data-section="work">Work</a>
+        <a class="pill-link" href="#services" data-section="services">Do</a>
+        <a class="pill-link" href="#about" data-section="about">About</a>
+        <a class="pill-link" href="#contact" data-section="contact">Ping</a>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="main-container" id="mainContainer">
+        
+        <!-- Section 1: Hero -->
+        <section class="content-section" id="hero">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+            <svg class="doodle doodle-hero" viewBox="0 0 800 300" aria-hidden="true" focusable="false">
+                <path d="M30,210 C120,110 210,260 300,170 C390,80 520,250 610,150 C700,55 760,120 790,90" />
+                <path d="M60,260 C150,190 240,295 330,230 C420,165 520,285 640,230" />
+            </svg>
+            
+            <div class="hero-content">
+                <h1 class="hero-tagline">
+                    <span class="line"><span>We Get Your</span></span>
+                    <span class="line"><span>Business</span></span>
+                    <span class="line"><span class="glitch" data-text="Moving">Moving</span></span>
+                </h1>
+                <p class="hero-subtext">
+                    We're not your average web design agency. We build digital experiences that move people, move markets, and move the needle.
+                </p>
+                <div class="velocity-badge reveal">
+                    <span>→</span>
+                    <span>Creative Development Studio</span>
+                </div>
+            </div>
+
+            <div class="scroll-indicator">
+                <span>Scroll to Explore</span>
+                <div class="scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- Section 2: Work -->
+        <section class="content-section" id="work">
+            <div class="work-showcase">
+                <h2 class="section-header reveal">Selected Work</h2>
+                <div class="project-grid">
+                    <div class="project-card" data-tilt>
+                        <div class="project-image"></div>
+                        <div class="project-info">
+                            <div class="project-title">Nexus Finance</div>
+                            <div class="project-category">Web Platform / UI Design</div>
+                        </div>
+                    </div>
+                    <div class="project-card" data-tilt>
+                        <div class="project-image"></div>
+                        <div class="project-info">
+                            <div class="project-title">Aura Wellness</div>
+                            <div class="project-category">E-Commerce / Branding</div>
+                        </div>
+                    </div>
+                    <div class="project-card" data-tilt>
+                        <div class="project-image"></div>
+                        <div class="project-info">
+                            <div class="project-title">Pulse Media</div>
+                            <div class="project-category">Interactive Experience</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Services -->
+        <section class="content-section" id="services">
+            <div class="services-container">
+                <h2 class="section-header reveal">What We Do</h2>
+                <ul class="service-list">
+                    <li class="service-item">
+                        <div class="service-header">
+                            <span class="service-name">Web Design & Development</span>
+                            <span class="service-number">01</span>
+                        </div>
+                        <div class="service-desc">
+                            <p>Custom websites that don't just look good—they perform. From complex web applications to stunning marketing sites, we code everything in-house.</p>
+                        </div>
+                    </li>
+                    <li class="service-item">
+                        <div class="service-header">
+                            <span class="service-name">Brand Identity</span>
+                            <span class="service-number">02</span>
+                        </div>
+                        <div class="service-desc">
+                            <p>Logos, visual systems, and brand guidelines that tell your story. We create identities that stick in minds and drive recognition.</p>
+                        </div>
+                    </li>
+                    <li class="service-item">
+                        <div class="service-header">
+                            <span class="service-name">Motion & Interaction</span>
+                            <span class="service-number">03</span>
+                        </div>
+                        <div class="service-desc">
+                            <p>Micro-interactions, scroll effects, and animations that make users say "wow." We believe the details make the difference.</p>
+                        </div>
+                    </li>
+                    <li class="service-item">
+                        <div class="service-header">
+                            <span class="service-name">Digital Strategy</span>
+                            <span class="service-number">04</span>
+                        </div>
+                        <div class="service-desc">
+                            <p>SEO, conversion optimization, and user experience audits. We make sure your digital presence actually works for your business.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 4: About -->
+        <section class="content-section" id="about">
+            <div class="about-content">
+                <div class="about-text reveal">
+                    <p>We're <span class="highlight">Velocity</span>—a collective of designers, developers, and digital strategists who believe the web should be anything but boring.</p>
+                    <p>No templates. No shortcuts. Just <span class="highlight">bespoke digital experiences</span> built with obsessive attention to detail and a healthy disregard for the status quo.</p>
+                    <p>Based everywhere, available globally. We work with brands ready to move fast and make an impact.</p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="50">0</div>
+                        <div class="stat-label">Projects Delivered</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="12">0</div>
+                        <div class="stat-label">Countries Reached</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="100">0</div>
+                        <div class="stat-label">% Passion</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="0">0</div>
+                        <div class="stat-label">Boring Websites</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Contact -->
+        <section class="content-section" id="contact">
+            <div class="contact-container">
+                <h2 class="cta-headline reveal">Ready to Move?</h2>
+                <p style="color: var(--velocity-light-gray); margin-bottom: 3rem; font-size: 1.25rem;">
+                    Let's create something that breaks the internet (in a good way).
+                </p>
+                <a href="mailto:hello@velocity.studio" class="cta-button">
+                    <span>Start a Project</span>
+                    <span style="font-size: 1.5rem;">→</span>
+                </a>
+                
+                <div class="contact-links">
+                    <a href="#" class="contact-link">Instagram</a>
+                    <a href="#" class="contact-link">Twitter</a>
+                    <a href="#" class="contact-link">LinkedIn</a>
+                    <a href="#" class="contact-link">Dribbble</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
